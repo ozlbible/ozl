@@ -1,4 +1,4 @@
---  40 Slots Avalable For Serpent  --
+--  37 Slots Avalable For Serpent Current Whitelist Goes for 170$ USD, Bitcoin or Litecoin  --
 -- Never Public Nor Released Fully --
 -- CURRENT AVALABLE WHITELISTS 37/40 -- 
 

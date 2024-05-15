@@ -1,0 +1,79 @@
+shared.lastPos = nil
+shared.velocity = nil
+shared.lastTime = nil
+
+local function RecalculateVelocity(target)
+    local lastPos = shared.lastPos
+    local lastTime = shared.lastTime
+        if not lastPos then
+            shared.lastPos = target.Character:GetPivot().p
+            shared.lastTime = tick()
+                    return
+                end
+                
+    local currentPos = target.Character:GetPivot().p
+    local currentTime = tick()
+    local deltaTime = currentTime - lastTime
+    local velocity = (currentPos - lastPos) / deltaTime
+            shared.velocity = velocity
+            shared.lastPos = currentPos
+            shared.lastTime = currentTime
+        end
+
+local function UpdateVelocity()
+    if getgenv().Loot.Resolving.Enabled and getgenv().Loot.Resolving.Type == "Position" and CurveTarget then
+        RecalculateVelocity(CurveTarget)
+        end
+    end
+
+RS.Heartbeat:Connect(UpdateVelocity)
+                
+local previousPosition = nil
+local previousTime = nil
+
+local function NewVelocity(object)
+    local currentPosition = object.Position
+    local currentTime = tick()
+
+    if previousPosition and previousTime then
+        local deltaTime = currentTime - previousTime
+        local velocity = (currentPosition - previousPosition) / deltaTime
+
+        object.Velocity = velocity
+    end
+
+    previousPosition = currentPosition
+    previousTime = currentTime
+end
+
+RS.Heartbeat:Connect(function()
+    local object = AimbotTarget.Character and AimbotTarget.Character:FindFirstChild("HumanoidRootPart")
+    if object and object.Velocity.magnitude > getgenv().Loot.Resolving.Delta then
+        NewVelocity(object)
+    end
+end)
+
+
+
+
+RS.Heartbeat:Connect(function()
+    if getgenv().Loot.Curve.Enabled then
+        if CurveTarget and CurveTarget.Character and CurveTarget.Character:FindFirstChild("HumanoidRootPart") then
+            local Position = CurveTarget.Character:WaitForChild("HumanoidRootPart").Velocity.magnitude
+            if Position > getgenv().Loot.Resolving.Delta then
+                getgenv().Loot.Resolving.Enabled = true
+                getgenv().Loot.Curve.Amount = getgenv().Loot.Resolving.ThresholdVelocity
+            else
+                getgenv().Loot.Resolving.Enabled = false
+                getgenv().Loot.Curve.Amount = getgenv().Loot.Resolving.RevertValue
+            end
+        end
+    end
+end)
+
+
+
+
+
+
+RS.Heartbeat:Connect(createCircle)

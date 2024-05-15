@@ -1,0 +1,95 @@
+-- // mem spoofer
+
+if uwuMemorySpoofer.Enabled then
+    Script.Functions.ChangeText = function()
+        pcall(function()
+            coroutine.resume(coroutine.create(function()
+                local PerformanceStats = game:GetService("CoreGui").RobloxGui:FindFirstChild("PerformanceStats")
+                if not PerformanceStats then return end
+                for _, v in pairs(PerformanceStats:GetDescendants()) do
+                    if v.ClassName == "TextLabel" then
+                        if v.Text:match("MB") then
+                            if v.Name == "ValueLabel" then
+                                v.Text = Text_1 .. "" .. Text_2
+                            end
+                            if v.Name == "Label" then
+                                if v.Text:match("Current") then
+                                    v.Text = "Current " .. Text_1 .. "" .. Text_2
+                                end
+                                if v.Text:match("Average") then
+                                    v.Text = "Average " .. Text_3.. "" .. Text_4
+                                end
+                            end
+                        end
+                    end
+                end
+            end))
+            local DevConsole = game:GetService("CoreGui"):FindFirstChild("DevConsoleMaster")
+            if not DevConsole then return end
+            for _, v in pairs(DevConsole:GetDescendants()) do
+                if v.ClassName == "TextButton" then
+                    if v.Text:match("MB") and not v.Text:match("Value MB") then
+                        v.Text = Text_5 .. " MB"
+                    end
+                end
+            end
+            if DevConsole:FindFirstChild("DevConsoleWindow"):FindFirstChild("DevConsoleUI"):FindFirstChild("MainView"):FindFirstChild("ClientMemory"):FindFirstChild("Entries"):FindFirstChild("Memory"):FindFirstChild("value") then
+                DevConsole.DevConsoleWindow.DevConsoleUI.MainView.ClientMemory.Entries.Memory.value.Text =  Text_5 .. "" .. Text_6
+            end
+            
+            local Graph = DevConsole:FindFirstChild("DevConsoleWindow"):FindFirstChild("DevConsoleUI"):FindFirstChild("MainView"):FindFirstChild("ClientMemory"):FindFirstChild("Entries"):FindFirstChild("Memory"):FindFirstChild("Graph"):FindFirstChild("graph")
+            local Graph2 = DevConsole:FindFirstChild("DevConsoleWindow"):FindFirstChild("DevConsoleUI"):FindFirstChild("MainView"):FindFirstChild("ClientMemory"):FindFirstChild("Entries"):FindFirstChild("Memory"):FindFirstChild("Graph")
+            if Graph then
+                if Graph:FindFirstChild("LatestEntryText") then
+                    Graph:FindFirstChild("LatestEntryText").Text = Text_1 .. Text_7
+                    Graph:FindFirstChild("AxisTextY0").Text = math.floor(Text_5 * 0.9) .. Text_6
+                end
+                local Hover_Y = Graph.HoverDetails.HoverHorizontal.Position.Y.Offset
+                local TopValue = tonumber(Graph.LatestEntryText.Text)
+                local BottomValue = tonumber(Graph.AxisTextY0.Text)
+                local TopText_Y = Graph.LatestEntryText.Position.Y.Offset
+                local BottomText_Y = Graph.AxisTextY0.Position.Y.Offset
+                local LatestEntryLine_Y = Graph.LatestEntryLine.Position.Y.Offset
+                local Name = DevConsole.DevConsoleWindow.DevConsoleUI.MainView.ClientMemory.Entries.Memory.Graph.name
+                
+                if Hover_Y < LatestEntryLine_Y then
+                    TopText_Y = Graph.LatestEntryText.Position.Y.Offset
+                    BottomText_Y = Graph.AxisTextY0.Position.Y.Offset
+                elseif Graph.AxisTextY0.Position.Y.Offset < LatestEntryLine_Y then
+                    TopText_Y = Name.Position.Y.Offset
+                    BottomText_Y = Graph.LatestEntryText.Position.Y.Offset
+                    TopValue = tonumber(DevConsoleUI.TopBar.LiveStatsModule["MemoryUsage_MB"].Text)
+                    BottomValue = tonumber(Graph.LatestEntryText.Text)
+                end
+                
+                local HoverValue = BottomValue + ((TopValue - BottomValue) * ((Hover_Y - BottomText_Y) / (TopText_Y - BottomText_Y)))
+                Graph.HoverDetails.HoverTextY.Text = string.format("%.3f", HoverValue)
+            end
+        end)
+    end
+    
+    -- // The Loops That Changes The Value
+    coroutine.resume(coroutine.create(function()
+        while Loot.MemorySpoofer.Enabled and RS.Heartbeat:Wait() do
+            Script.Functions.ChangeText()
+        end
+    end))
+        
+    coroutine.resume(coroutine.create(function()
+        while Loot.MemorySpoofer.Enabled do
+            task.wait(Loot.MemorySpoofer.Delay)
+            Text_1 = tostring(math.random(Loot.MemorySpoofer.Lowest, Loot.MemorySpoofer.Maximum))
+            Text_2 = tostring("." .. math.random(10, 99) .. " MB")
+            Text_3 = tostring(math.random(Loot.MemorySpoofer.Lowest, Loot.MemorySpoofer.Maximum))
+            Text_4 = tostring("." .. math.random(10, 99) .. " MB")
+        end
+    end))
+        
+    coroutine.resume(coroutine.create(function()
+        while Loot.MemorySpoofer.Enabled do
+            task.wait(5)
+            Text_5 = tostring(math.random(Loot.MemorySpoofer.Lowest, Loot.MemorySpoofer.Maximum))
+            Text_6 = tostring("."..math.random(100, 999))
+            Text_7 = tostring("."..math.random(100, 999))
+        end
+    end))

@@ -109,7 +109,7 @@ if not LPH_OBFUSCATED then -- if obfuscated then just remove this
 
 
 local function getnamecall() -- u can add placeid detector with all namecalls & remotes if we want later on
-    return "UpdateMousePos"
+    return "UpdateMousePos1"
 end
  
  local namecalltype = getnamecall()

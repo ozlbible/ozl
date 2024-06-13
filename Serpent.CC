@@ -325,7 +325,8 @@ getgenv().Serpent = {
         ['AnimatedESP'] = false,
         ['FriendlyESP'] = false, -- Highlights Friends
         ['TargetESP'] = false, -- Highlights Targeted Players
-        ['TargetedPlayerName'] = "Byfron" -- Username
+        ['TargetedPlayerName'] = "Byfron", -- Username
+        ['AnimateESP'] = false
     },
 }
  

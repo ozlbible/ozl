@@ -1,0 +1,56 @@
+--[[ Private Da Hood Triggerbot
+Over 15x Stars Gained
+Never Caught
+Most Legit Triggerbot Ever
+--]]
+
+
+
+--------------------------------------------------------------------------------------------
+
+
+
+--[[
+    ///////////////////////////////
+    //   © 2020 - 2024 OZL Team  //
+    //    All rights reserved    //
+    ///////////////////////////////
+    // This material may not be  //
+    //   reproduced, displayed,  //
+    //  modified or distributed  //
+    // without the express prior //
+    // written permission of the //
+    //   the copyright holder.   //
+    ///////////////////////////////
+--]]
+
+script_key="";
+
+-- Triggerbot
+getgenv().Enabled = true
+getgenv().Keybind = Enum.KeyCode.Q
+getgenv().Prediction = 0.125883188355
+getgenv().Hold = false
+getgenv().IgnoreObjects = true
+getgenv().Delay = 2.1
+-- Memory
+getgenv().Enabled = true 
+getgenv().Start = 1020
+getgenv().End = 1434
+getgenv().Speed = 1
+-- Fov
+getgenv().ShowFOV = false
+getgenv().circle = Drawing.new("Circle")
+getgenv().circle.Color = Color3.fromRGB(171,0,255)
+getgenv().circle.Thickness = 0
+getgenv().circle.NumSides = 732
+getgenv().circle.Radius = 10
+getgenv().circle.Thickness = 0
+getgenv().circle.Transparency = 0.7
+getgenv().circle.Visible = true
+getgenv().circle.Filled = false
+
+loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/e1925cacb7523d3e6352c4db8e41n52.lua"))()
+
+
+

@@ -23,6 +23,7 @@
 -- // Optimized Camlock More For Other Games
 -- // Fixed Triggerbot With Prediction Curving
 -- // replaced nill to nil idk why i named it nill
+-- // Made Fov Shapes Streamproof
 
 
 -- // NOTE: ALL FEATURES ARE UNIVERSAL BTW FOR ALL HOOD GAMES, ALSO THE ANTI GROUND SHOTS SETS KEEP THEM THE SAME OR SCRIPT WILL BREAK

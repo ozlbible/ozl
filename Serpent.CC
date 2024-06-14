@@ -16,10 +16,15 @@
 --██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████--
 --.🅒🅒--
 -----------------------------------------------------------------------------------------------------------------------------------------------------------
--- // Main Log V.2.5 Serpent.cc 
+-- // Main Log V.2.6 Serpent.cc 
 -- // Soon making Camlock Range Stuff
--- // Added Hold Mode for Triggerbot
--- // Added Support to Private executor "A8q*idsa81dgdjh" (Not actual name Btw)
+-- // Fixed Fps Booster
+-- // Fixed Triangle Not Working For Fov shapes
+-- // Optimized Camlock More For Other Games
+-- // Fixed Triggerbot With Prediction Curving
+-- // replaced nill to nil idk why i named it nill
+
+
 -- // NOTE: ALL FEATURES ARE UNIVERSAL BTW FOR ALL HOOD GAMES, ALSO THE ANTI GROUND SHOTS SETS KEEP THEM THE SAME OR SCRIPT WILL BREAK
 -----------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -30,7 +35,7 @@ getgenv().Serpent = {
         ['LoadSeconds'] = 1, -- How many Seconds you Want the Script Too Load
         ['LoadKeybind'] = '', -- Keybind For the Script To load Good for Closet cheating
         ['FPSBOOST'] = true,
-        ['UWPBooster'] = nill,
+        ['UWPBooster'] = nil,
         ['DestroyF9Console'] = false,
         ['Intro'] = true,
         ['MuteBoomBox'] = false,
@@ -43,16 +48,16 @@ getgenv().Serpent = {
     },
     ['Support'] = { -- KEEP ON NILL FOR EXECUTORS THAT ARE DOWN
         ['Solara'] = true,
-        ['Krampus'] = nill,
-        ['FluxusUWP'] = nill,
-        ['Evon'] = nill,
-        ['KRNL'] = nill,
-        ['Synapse'] = nill,
-        ['ScriptWare'] = nill,
-        ['Electron'] = nill,
+        ['Krampus'] = nil,
+        ['FluxusUWP'] = nil,
+        ['Evon'] = nil,
+        ['KRNL'] = nil,
+        ['Synapse'] = nil,
+        ['ScriptWare'] = nil,
+        ['Electron'] = nil,
         ['Celery'] = true,
-        ['Fluxus'] = nill,
-        ['ElectronUWP'] = nill,
+        ['Fluxus'] = nil,
+        ['ElectronUWP'] = nil,
         ['A8q*idsa81dgdjh'] = true
     },
     ['Checks'] = {

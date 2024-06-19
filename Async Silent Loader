@@ -1,5 +1,5 @@
 #!/usr/bin/lua5.1
---- Async/Await for Lua 5.1 Created by Murk
+--- Async/Await for Lua 5.1 Created by Meorawr Fixed up Version sold by murk and fully functional
 --  This script implements async/await functions for Lua, allowing tasks to
 --  be queued and scheduled independently.
 --  good for Closet cheating lol and loading scripts silently without any fps drops or interruptions

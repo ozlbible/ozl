@@ -160,7 +160,7 @@ getgenv().Serpent = {
                 ['Hexagon'] = false,
                 ['Triangle'] = false,
                 ['Octigon'] = false
-            },
+            }
         },
         ['Box'] = {
             ['Show'] = false,

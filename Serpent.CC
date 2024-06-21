@@ -32,6 +32,9 @@
 -- // FIXED SILENT AIM FOR HOOD CUSTOMS
 -- // ADDED A BETTER AUTO DETECTOR FOR AIMING ARGS
 -- // ADDED X AND Y PREDICTIONS TOO CAMLOCK 
+-- // ADDED RAID AWARENESS
+-- // FIXED STREAMPROOF MODE
+-- // REDONE ANTI LOCK SECTION + WITH MORE FEATURES
 
 
 -- IMPORTANT MUST READ 
@@ -102,6 +105,14 @@ getgenv().Serpent = {
             ['FrameSkipNotifications'] = false,
             ['NotificationMode'] = "Roblox" -- Xaxa, Roblox
         }
+    },
+    ['Streamable'] = {
+        ['Enabled'] = true,
+        ['Keybind'] = "",
+        ['ESP'] = true,
+        ['FOV'] = true,
+        ['RaidAwareness'] = true,
+        ['KeybindList'] = true
     },
     ['SilentAim'] = {
         ['Enabled'] = true,
@@ -382,7 +393,6 @@ getgenv().Serpent = {
         ['PanicKey'] = "",
         ['CFrame'] = "", -- 185 Speed
         ['Fly'] = "", -- 145 Speed
-        ['AntiLock'] = "", -- Uses Private Desync
     },
     ['Visuals'] = { -- Inside GUI Has Customizable Colors Plus Visualizer
         ['Enabled'] = false,
@@ -399,9 +409,34 @@ getgenv().Serpent = {
         ['FriendlyESP'] = false, -- Highlights Friends
         ['TargetESP'] = false, -- Highlights Targeted Players
         ['TargetedPlayerName'] = "Byfron", -- Username
-        ['AnimateESP'] = false
+        ['AnimateESP'] = false,
+        ['PlayerDistance'] = false
+    },
+    ['RaidAwareness'] = {
+        ['Enabled'] = false,
+        ['Keybind'] = "", -- Toggle Onto your Targeted Player
+        ['KillSwitch'] = "",
+
+        ['Username1'] = "",
+        ['Username2'] = "",
+        ['Username3'] = "",
+        ['Username4'] = "",
+        ['Username5'] = "",
+        ['Username6'] = "",
+        ['Username7'] = "",
+        ['Username8'] = "",
+        ['Username9'] = "",
+        ['Username10'] = ""
+    },
+    ['AntiAim'] = {
+        ['Enabled'] = false,
+        ['Keybind'] = "",
+        ['AntiLockMode'] = "PredictionBreaker" -- PredictionBreaker, InvisibleDesync, Desync, Underground, Sky
+    },
+    ['FFLAG'] = {
+        ['Enabled'] = false,
+        ['Keybind'] = "",
+        ['FFLAGMode'] = "InvisibleDesync" -- Underground, InvisibleDesync, Jitter
     },
 }
-
- 
 loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/e14209cacb6973d3e605234db8583c52.lua"))()  

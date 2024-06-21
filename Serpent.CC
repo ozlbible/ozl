@@ -31,6 +31,7 @@
 -- // ADDED CLOSEST POINT OFFSET
 -- // FIXED SILENT AIM FOR HOOD CUSTOMS
 -- // ADDED A BETTER AUTO DETECTOR FOR AIMING ARGS
+-- // ADDED X AND Y PREDICTIONS TOO CAMLOCK 
 
 
 -- IMPORTANT MUST READ 
@@ -209,7 +210,6 @@ getgenv().Serpent = {
             ['GunCheck'] = false
         }, 
         ['Settings'] = {
-            ['Prediction'] = 0.135,
             ['ClosestPoint'] = false,
             ['ClosetPart'] = false,
             ['Normal'] = true, -- One Hitpart
@@ -219,6 +219,10 @@ getgenv().Serpent = {
                 ['UseOffsets'] = false,
                 ['XOffset'] = 0,
                 ['YOffset'] = 0
+            }
+            ['PredictionSettings'] = {
+                ['PredictionX'] = 0.135, -- Main Prediction
+                ['PredictionY'] = 0.135
             }
         },
         ['FovSettings'] = {

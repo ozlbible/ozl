@@ -1,6 +1,9 @@
---  37 Slots Avalable For Serpent Current Whitelist Goes for 170$ USD, Bitcoin or Litecoin  --
+--  28 Slots Avalable For Serpent Current Whitelist Goes for 170$ USD, Bitcoin or Litecoin  --
+-- Comes With Private PC Cleaner/PC Check Bypass Thats Exlusive to Buyers Only --
+-- Comes With Exlusive Programs Like Our Auto PS Joiner and more -- 
+-- 25x Da hood Stars Crewleaders + Da hood Stars -- 
 -- Never Public Nor Released Fully --
--- CURRENT AVALABLE WHITELISTS 37/40 -- 
+-- CURRENT AVALABLE WHITELISTS 28/40 -- 
 
 --██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████--        yes the N is fucked up
 --█░░░░░░░░░░░░░░█░░░░░░░░░░░░░░█░░░░░░░░░░░░░░░░███░░░░░░░░░░░░░░█░░░░░░░░░░░░░░█░░░░░░██████████░░░░░░█░░░░░░░░░░░░░░█--
@@ -16,14 +19,22 @@
 --██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████--
 --.🅒🅒--
 -----------------------------------------------------------------------------------------------------------------------------------------------------------
--- // Main Log V.2.6 Serpent.cc 
+-- // Main Log V.2.7 Serpent.cc 
 -- // Soon making Camlock Range Stuff
--- // Fixed Fps Booster
--- // Fixed Triangle Not Working For Fov shapes
--- // Optimized Camlock More For Other Games
--- // Fixed Triggerbot With Prediction Curving
--- // replaced nill to nil idk why i named it nill
--- // Made Fov Shapes Streamproof
+-- // FPS BOOST UPDATE
+-- // OPTIMIZED SCRIPT MORE 0 FPS DROPS
+-- // ADDED SUPPORT FOR NEW DA HOOD COPIES  
+-- // ADDED ALL FOV SHAPES TOO SILENT AIM RANGE SETTINGS AND TRIGGERBOT RANGE SETTINGS
+-- // BUFFED SILENT AIM TOO HIT MORE WHILE LOOKING LEGIT 
+-- // ADDED NEW FOV SETTINGS
+-- // ADDED SHAKE OFFSET FOR CAMLOCK
+-- // ADDED CLOSEST POINT OFFSET
+-- // FIXED SILENT AIM FOR HOOD CUSTOMS
+-- // ADDED A BETTER AUTO DETECTOR FOR AIMING ARGS
+
+
+-- IMPORTANT MUST READ 
+-- // NOTE: WHEN DOING FOVSHAPED FOR SILENT AIM RANGE SETTINGS YOU HAVE TO ENABLE THE SHAPE YOU WANT TOO USE IN THE SILENT AIM FOV SECTION THIS CAN APPLY FOR MULTIPLE
 
 
 -- // NOTE: ALL FEATURES ARE UNIVERSAL BTW FOR ALL HOOD GAMES, ALSO THE ANTI GROUND SHOTS SETS KEEP THEM THE SAME OR SCRIPT WILL BREAK
@@ -35,17 +46,23 @@ getgenv().Serpent = {
         ['GUI'] = true, -- Main
         ['LoadSeconds'] = 1, -- How many Seconds you Want the Script Too Load
         ['LoadKeybind'] = '', -- Keybind For the Script To load Good for Closet cheating
-        ['FPSBOOST'] = true,
-        ['UWPBooster'] = nil,
-        ['DestroyF9Console'] = false,
         ['Intro'] = true,
         ['MuteBoomBox'] = false,
         ['RemoveSeats'] = false
     },
+    ['Optimizer'] = {
+        ['FpsBoost'] = true, -- Updated 85% More FPS Boost
+        ['AutoLowGFX'] = false,
+        ['DestroyF9Console'] = false,
+        ['UWPBooster'] = nil,
+        ['GreySky'] = false,
+        ['RemoveShadows'] = false
+    }
     ['Universal'] = {
-       ['GameID'] = "", -- Enter Your Game ID You want to Play, Examples: HoodCustoms = 9825515356, Hood Modded = 5602055394
+       ['GameID'] = "", -- Enter Your Game ID You want to Play, Examples: HoodCustoms = 9825515356, Hood Modded = 5602055394, leave blank for da hood
        ['AdonisBypass'] = true,
-       ['HoodCustomsACBypass'] = true
+       ['HoodCustomsACBypass'] = true,
+       ['HoodCustomsVectorSilentFix'] = true -- Keep on if Your going in hood customs
     },
     ['Support'] = { -- KEEP ON NILL FOR EXECUTORS THAT ARE DOWN
         ['Solara'] = true,
@@ -88,7 +105,7 @@ getgenv().Serpent = {
     ['SilentAim'] = {
         ['Enabled'] = true,
         ['Keybind'] = "L",
-        ['POS'] = ['UpedateMousePOS'],
+        ['POS'] = ['AutoDetect'],
         ['VisualizePoint'] = false,
         ['Hitpart'] = 'HumanoidRootPart',
         ['AntiGroundShots'] = {
@@ -119,7 +136,12 @@ getgenv().Serpent = {
             ['ClosestPointReductionRate'] = 20,
             ['HitChance'] = 100,
             ['AutoPrediction'] = false,
-            ['AutoPredictionMode'] = 'V.8' -- V.1 V.2 V.3 V.4 V.5 V.6 V.7 V.8
+            ['AutoPredictionMode'] = 'V.8', -- V.1 V.2 V.3 V.4 V.5 V.6 V.7 V.8
+            ['ClosestPointOffsets'] = {
+                ['UseOffsets'] = false,
+                ['XOffset'] = 0,
+                ['YOffset'] = 0
+            }
         },
         ['FovModes'] = {
             ['Normal'] = true, -- Simple Circlular FOV
@@ -134,12 +156,15 @@ getgenv().Serpent = {
             ['Thickness'] = 0.2,
             ['Transparency'] = 0.5,
             ['Sticky'] = false,
-            ['Hexagon'] = false,
-            ['Triangle'] = false,
-            ['Octigon'] = false
+            ['NormalShaped'] = {
+                ['Hexagon'] = false,
+                ['Triangle'] = false,
+                ['Octigon'] = false
+            },
         },
         ['Box'] = {
             ['Show'] = false,
+            ['Sticky'] = true, -- Recommend
             ['Widith'] = 100,
             ['Height'] = 100,
             ['Color'] = Color3fromRGB(200, 1, 200),
@@ -148,7 +173,7 @@ getgenv().Serpent = {
             ['Transparency'] = 0.5,
             ['Predicted'] = true -- Makes the FOV Follow with the Prediction Of your Silent aim
         },
-        ['PlayerFOV'] = { -- GUIDE: Player FOV Might seem Tricky at First But it's Just Roblox Avatar Scales (Current Settings Reccomended)
+        ['PlayerFOV'] = { -- GUIDE: Player FOV Might seem Tricky at First But it's Just Roblox Avatar Scales (Current Settings Recommended)
             ['Show'] = false,
             ['Height'] = 90/100,
             ['Widith'] = 70/100,
@@ -189,7 +214,12 @@ getgenv().Serpent = {
             ['ClosetPart'] = false,
             ['Normal'] = true, -- One Hitpart
             ['Hitpart'] = "UpperTorso",
-            ['AirShotHitpart'] = "Head"
+            ['AirShotHitpart'] = "Head",
+            ['CamlockOffsets'] = {
+                ['UseOffsets'] = false,
+                ['XOffset'] = 0,
+                ['YOffset'] = 0
+            }
         },
         ['FovSettings'] = {
             ['Show'] = true,
@@ -227,12 +257,16 @@ getgenv().Serpent = {
             ['CardioidFrequency'] = 0.5
         },
         ['Other'] = {
-            ['Shake'] = false,
-            ['Shake_X'] = 1,
-            ['Shake_Y'] = 1,
-            ['Shake_Z'] = 1,
             ['FrameSkips'] = false,
-            ['FrameSkipKeybind'] = ""
+            ['FrameSkipKeybind'] = "",
+            ['ShakeSettings'] = {
+                ['Shake'] = false,
+                ['Shake_X'] = 1,
+                ['Shake_Y'] = 1,
+                ['Shake_Z'] = 1,
+                ['ShakeOffsetX'] = 0,
+                ['ShakeOffsetY'] = 0
+            }
         }
     },
     ['TriggerBot'] = {
@@ -255,15 +289,22 @@ getgenv().Serpent = {
         },
         ['TriggerBotRangeSettings'] = {
             ['Enabled'] = false,
+
             ['Close'] = 27, -- Studs
             ['Medium'] = 60,
             ['Far'] = math.huge,
+
             ['CloseRangePrediction'] = 0.12,
             ['MediumRangePrediction'] = 0.12,
             ['FarRangePrediction'] = 0.12,
+
             ['CloseRangeFOV'] = 10,
             ['MediumRangeFOV'] = 10,
             ['FarRangeFOV'] = 10
+
+            ['CloseRangeFOVMode'] = "Normal",
+            ['MediumRangeFOVMode'] = "Normal",
+            ['FarRangeFOVMode'] = "Normal"
         }
     },
     ['RangeFOVSilent'] = {
@@ -272,43 +313,65 @@ getgenv().Serpent = {
             ['Close'] = 27, -- Studs
             ['Medium'] = 60,
             ['Far'] = math.huge,
+
             ['CloseRangePrediction'] = 0.12,
             ['MediumRangePrediction'] = 0.12,
             ['FarRangePrediction'] = 0.12,
+
             ['CloseRangeFOV'] = 10,
             ['MediumRangeFOV'] = 10,
             ['FarRangeFOV'] = 10,
+
             ['CloseRangeHitChance'] = 100,
             ['MediumRangeHitChance'] = 100,
             ['FarRangeHitChance'] = 100,
+
+            ['CloseRangeFOVMode'] = "Normal",
+            ['MediumRangeFOVMode'] = "Normal",
+            ['FarRangeFOVMode'] = "Normal"
+
         },
         ['Pistols'] = {
             ['Close'] = 27, -- Studs
             ['Medium'] = 60,
             ['Far'] = math.huge,
+
             ['CloseRangePrediction'] = 0.12,
             ['MediumRangePrediction'] = 0.12,
             ['FarRangePrediction'] = 0.12,
+
             ['CloseRangeFOV'] = 10,
             ['MediumRangeFOV'] = 10,
             ['FarRangeFOV'] = 10,
+
             ['CloseRangeHitChance'] = 100,
             ['MediumRangeHitChance'] = 100,
             ['FarRangeHitChance'] = 100,
+
+            ['CloseRangeFOVMode'] = "Normal",
+            ['MediumRangeFOVMode'] = "Normal",
+            ['FarRangeFOVMode'] = "Normal"
         },
         ['Automatics'] = {
             ['Close'] = 27, -- Studs
             ['Medium'] = 60,
             ['Far'] = math.huge,
+
             ['CloseRangePrediction'] = 0.12,
             ['MediumRangePrediction'] = 0.12,
             ['FarRangePrediction'] = 0.12,
+
             ['CloseRangeFOV'] = 10,
             ['MediumRangeFOV'] = 10,
             ['FarRangeFOV'] = 10,
+
             ['CloseRangeHitChance'] = 100,
             ['MediumRangeHitChance'] = 100,
             ['FarRangeHitChance'] = 100
+
+            ['CloseRangeFOVMode'] = "Normal",
+            ['MediumRangeFOVMode'] = "Normal",
+            ['FarRangeFOVMode'] = "Normal"
         }
     },
     ['Misc'] = {
@@ -335,5 +398,6 @@ getgenv().Serpent = {
         ['AnimateESP'] = false
     },
 }
+
  
 loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/e14209cacb6973d3e605234db8583c52.lua"))()  

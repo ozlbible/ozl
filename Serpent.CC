@@ -1,4 +1,5 @@
 --  28 Slots Avalable For Serpent Current Whitelist Goes for 170$ USD, Bitcoin or Litecoin  --
+-- Created By The Works Of Gamesneeze.cc/Atlanta Assist and Much others
 -- Comes With Private PC Cleaner/PC Check Bypass Thats Exlusive to Buyers Only --
 -- Comes With Exlusive Programs Like Our Auto PS Joiner and more -- 
 -- 25x Da hood Stars Crewleaders + Da hood Stars -- 
@@ -19,28 +20,19 @@
 --██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████--
 --.🅒🅒--
 -----------------------------------------------------------------------------------------------------------------------------------------------------------
--- // Main Log V.2.7 Serpent.cc 
+-- // Main Log V.3.8 Serpent.cc 
 -- // Soon making Camlock Range Stuff
--- // FPS BOOST UPDATE
--- // OPTIMIZED SCRIPT MORE 0 FPS DROPS
--- // ADDED SUPPORT FOR NEW DA HOOD COPIES  
--- // ADDED ALL FOV SHAPES TOO SILENT AIM RANGE SETTINGS AND TRIGGERBOT RANGE SETTINGS
--- // BUFFED SILENT AIM TOO HIT MORE WHILE LOOKING LEGIT 
--- // ADDED NEW FOV SETTINGS
--- // ADDED SHAKE OFFSET FOR CAMLOCK
--- // ADDED CLOSEST POINT OFFSET
--- // FIXED SILENT AIM FOR HOOD CUSTOMS
--- // ADDED A BETTER AUTO DETECTOR FOR AIMING ARGS
--- // ADDED X AND Y PREDICTIONS TOO CAMLOCK 
--- // ADDED RAID AWARENESS
--- // FIXED STREAMPROOF MODE
--- // REDONE ANTI LOCK SECTION + WITH MORE FEATURES
-
+-- // Starting On V4
+-- // ADDED RAPID FIRE 
+-- // ADDED LUA INJECTION FOR GUI
+-- // ADDED MORE STYLES FOR SILENT AIM
+-- // REDID ANTI CURVE 
+-- // ADDED IF ERROR THEN KICK
+-- // ADDED ERROR LOGGER
 
 -- IMPORTANT MUST READ 
 -- // NOTE: WHEN DOING FOVSHAPED FOR SILENT AIM RANGE SETTINGS YOU HAVE TO ENABLE THE SHAPE YOU WANT TOO USE IN THE SILENT AIM FOV SECTION THIS CAN APPLY FOR MULTIPLE
-
-
+-- // NOTE: ALL HVH FEATURES ARE INSIDE THE GUI INCLUDING CYSNC AND BULLET TP
 -- // NOTE: ALL FEATURES ARE UNIVERSAL BTW FOR ALL HOOD GAMES, ALSO THE ANTI GROUND SHOTS SETS KEEP THEM THE SAME OR SCRIPT WILL BREAK
 -----------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -126,15 +118,22 @@ getgenv().Serpent = {
         },
         ['AntiCurve'] = {
             ['Enabled'] = true,
-            ['AdvancedVelocity'] = true,
-            ['DeltaPattern'] = true,
+            ['VelocityControl'] = {
+                ['AdvancedVelocity'] = true,
+                ['X'] = 0.5,
+                ['Y'] = 0.3
+            },
+            ['DeltaControl'] = {
+                ['DeltaPattern'] = true,
+                ['Amount'] = 100
+            }
         },
         ['BulletManiputlation'] = {
          ['Postition'] = 'All',
          Remotes = local Path = game:GetService("ReplicatedStorage").MainEvent -- DONT EDIT
             return Arguments, Path
         end
-        ['Style'] = 'Sine'
+        ['Style'] = 'Sine' -- Elastic, Sine, Linear, Quad
         },
         ['Mode'] = {
             ['AdvancedClosest'] = true, -- A More Legit Version Of Closest Point Super Advanced Points and Reductions Rates
@@ -143,8 +142,9 @@ getgenv().Serpent = {
             ['Normal'] = false -- Uses Only One Hitpart Chosen Closest to your Cursor
         },
         ['Settings'] = {
-            ['OverideXAxis'] = true,
-            ['OverideYAxis'] = true,
+            ['OverrideXAxis'] = "Default", -- Default, Minimal, Partial, SmoothOut
+            ['OverrideYAxis'] = "Default", -- Default, Minimal, Partial, SmoothOut
+            ['OverrideZAxis'] = "Default", -- Default, Minimal, Partial, SmoothOut
             ['ClosestPointReductionRate'] = 20,
             ['HitChance'] = 100,
             ['AutoPrediction'] = false,
@@ -437,6 +437,21 @@ getgenv().Serpent = {
         ['Enabled'] = false,
         ['Keybind'] = "",
         ['FFLAGMode'] = "InvisibleDesync" -- Underground, InvisibleDesync, Jitter
+    },
+    ['RapidFire'] = { -- more Universal within Gui
+        ['Enabled'] = false,
+        ['Rate'] = 10
+    },
+    -- Error loggers If you Know you know I'd Recommend too not touch
+    -- Credits too Stefanuk for Helping me On this
+    -- checks for any errors
+    export type ErrorLogger = {
+        ErrorCheck: boolean | "error" | "kick",
+        DisableIfSpeedAbove: 10, -- Recommend too Keep On 10 Test For yourself
+        ['Enabled'] = false,
+        ['Print'] = false, -- Would Use if Your testing
+        ['PrintMessage'] = "ur lock is ass nigga get serpent",
+        ['Delay'] = 1 -- In seconds
     },
 }
 loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/e14209cacb6973d3e605234db8583c52.lua"))()  

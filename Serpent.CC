@@ -20,7 +20,7 @@
 --██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████--
 --.🅒🅒--
 -----------------------------------------------------------------------------------------------------------------------------------------------------------
--- // Main Log V.3.8 Serpent.cc 
+-- // Main Log V.3.9 Serpent.cc 
 -- // Soon making Camlock Range Stuff
 -- // Starting On V4
 -- // ADDED RAPID FIRE 
@@ -29,11 +29,15 @@
 -- // REDID ANTI CURVE 
 -- // ADDED IF ERROR THEN KICK
 -- // ADDED ERROR LOGGER
+-- // ADDED THE BEST RESOLVER
+-- // REDONE AUTO PREDICTION
 
 -- IMPORTANT MUST READ 
 -- // NOTE: WHEN DOING FOVSHAPED FOR SILENT AIM RANGE SETTINGS YOU HAVE TO ENABLE THE SHAPE YOU WANT TOO USE IN THE SILENT AIM FOV SECTION THIS CAN APPLY FOR MULTIPLE
 -- // NOTE: ALL HVH FEATURES ARE INSIDE THE GUI INCLUDING CYSNC AND BULLET TP
 -- // NOTE: ALL FEATURES ARE UNIVERSAL BTW FOR ALL HOOD GAMES, ALSO THE ANTI GROUND SHOTS SETS KEEP THEM THE SAME OR SCRIPT WILL BREAK
+-- // Resolver Explaination: Linear Is the Best Currently uses a Custom Force Applied onto a constraint.
+-- If you want Too learn More https://create.roblox.com/docs/reference/engine/classes/LinearVelocity#PrimaryTangentAxis , https://create.roblox.com/docs/reference/engine/classes/LinearVelocity
 -----------------------------------------------------------------------------------------------------------------------------------------------------------
 
 getgenv().Serpent = {
@@ -147,8 +151,6 @@ getgenv().Serpent = {
             ['OverrideZAxis'] = "Default", -- Default, Minimal, Partial, SmoothOut
             ['ClosestPointReductionRate'] = 20,
             ['HitChance'] = 100,
-            ['AutoPrediction'] = false,
-            ['AutoPredictionMode'] = 'V.8', -- V.1 V.2 V.3 V.4 V.5 V.6 V.7 V.8
             ['ClosestPointOffsets'] = {
                 ['UseOffsets'] = false,
                 ['XOffset'] = 0,
@@ -191,6 +193,28 @@ getgenv().Serpent = {
             ['Widith'] = 70/100,
             ['Head'] = 95/100,
             ['Proportions'] = 5/100
+        }
+        ['AutoPrediction'] = {
+            ['AutoPrediction'] = false,
+            ['Delay'] = 0.001259010151111,
+            ['AutoPred'] = {
+                ['p20_30'] = 0.11,
+                ['p30_40'] = 0.12,
+                ['p40_50'] = 0.12,
+                ['p50_60'] = 0.12,
+                ['p60_70'] = 0.129,
+                ['p80_90'] = 0.155,
+                ['p90_100'] = 0.191,
+                ['p100_110'] = 0.12264,
+                ['p110_120'] = 0.1929211135
+            }
+            ['UsePreCreated'] = {
+                ['Enabled'] = false,
+                ['PreCreatedAutoPredictionMode'] = 'V.8', -- V.1 V.2 V.3 V.4 V.5 V.6 V.7 V.8
+                ['Interval'] = 5.5/10,
+                ['Precision'] = 1,
+                ['Coefficient'] = 1,
+            }
         }
     },
     ['TargetAim'] = {
@@ -389,6 +413,10 @@ getgenv().Serpent = {
             ['FarRangeFOVMode'] = "Normal"
         }
     },
+    ['Resolver'] = {
+        ['Enabled'] = true,
+        ['Mode'] = "Linear" -- Linear, Delta, Basic
+    }
     ['Misc'] = {
         ['PanicKey'] = "",
         ['CFrame'] = "", -- 185 Speed

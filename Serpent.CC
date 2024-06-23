@@ -1,10 +1,10 @@
---  28 Slots Avalable For Serpent Current Whitelist Goes for 130$ USD, Bitcoin or Litecoin  --
+--  28 Slots Avalable For Serpent Current Whitelist Goes for 140$ USD, Bitcoin or Litecoin  --
 -- Created By The Works Of Gamesneeze.cc/Atlanta Assist and Much others
 -- Comes With Private PC Cleaner/PC Check Bypass Thats Exlusive to Buyers Only --
 -- Comes With Exlusive Programs Like Our Auto PS Joiner and more -- 
 -- 25x Da hood Stars Crewleaders + Da hood Stars -- 
 -- Never Public Nor Released Fully --
--- CURRENT AVALABLE WHITELISTS 28/40 -- 
+-- CURRENT AVALABLE WHITELISTS 24/40 -- 
 
 --██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████--        yes the N is fucked up
 --█░░░░░░░░░░░░░░█░░░░░░░░░░░░░░█░░░░░░░░░░░░░░░░███░░░░░░░░░░░░░░█░░░░░░░░░░░░░░█░░░░░░██████████░░░░░░█░░░░░░░░░░░░░░█--
@@ -20,17 +20,12 @@
 --██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████--
 --.🅒🅒--
 -----------------------------------------------------------------------------------------------------------------------------------------------------------
--- // Main Log V.3.9 Serpent.cc 
+-- // Main Log V.3.9.2 Serpent.cc 
 -- // Soon making Camlock Range Stuff
 -- // Starting On V4
--- // ADDED RAPID FIRE 
--- // ADDED LUA INJECTION FOR GUI
--- // ADDED MORE STYLES FOR SILENT AIM
--- // REDID ANTI CURVE 
--- // ADDED IF ERROR THEN KICK
--- // ADDED ERROR LOGGER
--- // ADDED THE BEST RESOLVER
--- // REDONE AUTO PREDICTION
+-- // Anti GroundShots Redid made more stable to prediction
+-- // Fixed wallcheck
+-- // Fixed Target Check For saftey
 
 -- IMPORTANT MUST READ 
 -- // NOTE: WHEN DOING FOVSHAPED FOR SILENT AIM RANGE SETTINGS YOU HAVE TO ENABLE THE SHAPE YOU WANT TOO USE IN THE SILENT AIM FOV SECTION THIS CAN APPLY FOR MULTIPLE
@@ -129,7 +124,7 @@ getgenv().Serpent = {
             },
             ['DeltaControl'] = {
                 ['DeltaPattern'] = true,
-                ['Amount'] = 100
+                ['Amount'] = 100 -- Stableness In %
             }
         },
         ['BulletManiputlation'] = {
@@ -215,6 +210,10 @@ getgenv().Serpent = {
                 ['Precision'] = 1,
                 ['Coefficient'] = 1,
             }
+        }
+        ['TargetCheck'] = {
+            ['Enabled'] = true,
+            ['Chance'] = 80
         }
     },
     ['TargetAim'] = {
@@ -459,12 +458,12 @@ getgenv().Serpent = {
     ['AntiAim'] = {
         ['Enabled'] = false,
         ['Keybind'] = "",
-        ['AntiLockMode'] = "PredictionBreaker" -- PredictionBreaker, InvisibleDesync, Desync, Underground, Sky
+        ['AntiLockMode'] = "PredictionBreaker" -- PredictionBreaker, InvisibleDesync, Desync, Underground, Sky, Network, Walkable
     },
     ['FFLAG'] = {
         ['Enabled'] = false,
         ['Keybind'] = "",
-        ['FFLAGMode'] = "InvisibleDesync" -- Underground, InvisibleDesync, Jitter
+        ['FFLAGMode'] = "InvisibleDesync" -- Underground, InvisibleDesync, Jitter, Network
     },
     ['RapidFire'] = { -- more Universal within Gui
         ['Enabled'] = false,

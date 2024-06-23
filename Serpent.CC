@@ -1,4 +1,4 @@
---  28 Slots Avalable For Serpent Current Whitelist Goes for 170$ USD, Bitcoin or Litecoin  --
+--  28 Slots Avalable For Serpent Current Whitelist Goes for 130$ USD, Bitcoin or Litecoin  --
 -- Created By The Works Of Gamesneeze.cc/Atlanta Assist and Much others
 -- Comes With Private PC Cleaner/PC Check Bypass Thats Exlusive to Buyers Only --
 -- Comes With Exlusive Programs Like Our Auto PS Joiner and more -- 

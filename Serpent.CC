@@ -20,12 +20,12 @@
 --██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████--
 --.🅒🅒--
 -----------------------------------------------------------------------------------------------------------------------------------------------------------
--- // Main Log V.3.9.2 Serpent.cc 
--- // Soon making Camlock Range Stuff
--- // Starting On V4
--- // Anti GroundShots Redid made more stable to prediction
--- // Fixed wallcheck
--- // Fixed Target Check For saftey
+-- // Main Log V.3.9.3 Serpent.cc 
+-- // Adding more Features into range fov camlock soon
+-- // Halfway Done with V4 
+-- // Supports Wave 6/28
+-- // Added RGB Colors For FOV 
+-- // ADDED RANGE FOV CAMLOCK
 
 -- IMPORTANT MUST READ 
 -- // NOTE: WHEN DOING FOVSHAPED FOR SILENT AIM RANGE SETTINGS YOU HAVE TO ENABLE THE SHAPE YOU WANT TOO USE IN THE SILENT AIM FOV SECTION THIS CAN APPLY FOR MULTIPLE
@@ -61,6 +61,7 @@ getgenv().Serpent = {
     },
     ['Support'] = { -- KEEP ON NILL FOR EXECUTORS THAT ARE DOWN
         ['Solara'] = true,
+        ['Wave'] = true,
         ['Krampus'] = nil,
         ['FluxusUWP'] = nil,
         ['Evon'] = nil,
@@ -68,7 +69,7 @@ getgenv().Serpent = {
         ['Synapse'] = nil,
         ['ScriptWare'] = nil,
         ['Electron'] = nil,
-        ['Celery'] = true,
+        ['Celery'] = nil,
         ['Fluxus'] = nil,
         ['ElectronUWP'] = nil,
         ['A8q*idsa81dgdjh'] = true
@@ -119,8 +120,8 @@ getgenv().Serpent = {
             ['Enabled'] = true,
             ['VelocityControl'] = {
                 ['AdvancedVelocity'] = true,
-                ['X'] = 0.5,
-                ['Y'] = 0.3
+                ['X'] = 0.6,
+                ['Y'] = 0.5
             },
             ['DeltaControl'] = {
                 ['DeltaPattern'] = true,
@@ -145,6 +146,7 @@ getgenv().Serpent = {
             ['OverrideYAxis'] = "Default", -- Default, Minimal, Partial, SmoothOut
             ['OverrideZAxis'] = "Default", -- Default, Minimal, Partial, SmoothOut
             ['ClosestPointReductionRate'] = 20,
+            ['Prediction'] = 0.129,
             ['HitChance'] = 100,
             ['ClosestPointOffsets'] = {
                 ['UseOffsets'] = false,
@@ -164,6 +166,10 @@ getgenv().Serpent = {
             ['Filled'] = false,
             ['Thickness'] = 0.2,
             ['Transparency'] = 0.5,
+            ['Rainbow'] = false,
+            ['PulseSpeed'] = 0, -- Adjust the pulse speed as needed
+            ['SpinSpeed'] = 1, -- Adjust the spin speed as needed
+            ['Dotted'] = false,
             ['Sticky'] = false,
             ['NormalShaped'] = {
                 ['Hexagon'] = false,
@@ -180,6 +186,8 @@ getgenv().Serpent = {
             ['Filled'] = false,
             ['Thickness'] = 0.2,
             ['Transparency'] = 0.5,
+            ['Rainbow'] = false,
+            ['Dotted'] = false,
             ['Predicted'] = true -- Makes the FOV Follow with the Prediction Of your Silent aim
         },
         ['PlayerFOV'] = { -- GUIDE: Player FOV Might seem Tricky at First But it's Just Roblox Avatar Scales (Current Settings Recommended)
@@ -187,7 +195,8 @@ getgenv().Serpent = {
             ['Height'] = 90/100,
             ['Widith'] = 70/100,
             ['Head'] = 95/100,
-            ['Proportions'] = 5/100
+            ['Proportions'] = 5/100,
+            ['Dotted'] = false
         }
         ['AutoPrediction'] = {
             ['AutoPrediction'] = false,
@@ -214,6 +223,9 @@ getgenv().Serpent = {
         ['TargetCheck'] = {
             ['Enabled'] = true,
             ['Chance'] = 80
+        }
+        ['PointRate'] = {
+            ['Power'] = 10 -- the More you go down the more harder it is too Hit a Bodypart 6-7 is best
         }
     },
     ['TargetAim'] = {
@@ -388,7 +400,7 @@ getgenv().Serpent = {
 
             ['CloseRangeFOVMode'] = "Normal",
             ['MediumRangeFOVMode'] = "Normal",
-            ['FarRangeFOVMode'] = "Normal"
+            ['FarRangeFOVMode'] = "Normal",
         },
         ['Automatics'] = {
             ['Close'] = 27, -- Studs
@@ -405,11 +417,119 @@ getgenv().Serpent = {
 
             ['CloseRangeHitChance'] = 100,
             ['MediumRangeHitChance'] = 100,
-            ['FarRangeHitChance'] = 100
+            ['FarRangeHitChance'] = 100,
 
             ['CloseRangeFOVMode'] = "Normal",
             ['MediumRangeFOVMode'] = "Normal",
             ['FarRangeFOVMode'] = "Normal"
+        }
+    },
+    ['RangeFOVCamlock'] = {
+        ['Enabled'] = false,
+        ['Shotguns'] = {
+            ['Close'] = 27, -- Studs
+            ['Medium'] = 60,
+            ['Far'] = math.huge,
+
+            ['CloseRangePrediction'] = 0.155,
+            ['MediumRangePrediction'] = 0.155,
+            ['FarRangePrediction'] = 0.155,
+
+            ['CloseRangeSmoothness'] = 0.00808,
+            ['MediumRangeSmoothness'] = 0.00808,
+            ['FarRangeSmoothness'] = 0.00808,
+
+            ['CloseRangeCamlockMode'] = "Easing",
+            ['MediumRangeCamlockMode'] = "Easing",
+            ['FarRangeCamlockMode'] = "Easing",
+
+            ['CloseRangeEasingStyle'] = "Linear",
+            ['MediumRangeEasingStyle'] = "Linear",
+            ['FarRangeEasingStyle'] = "Linear",
+
+            ['CloseRangeAirShotEasingStyle'] = "Linear",
+            ['MediumRangeAirShotEasingStyle'] = "Linear",
+            ['FarRangeAirShotEasingStyle'] = "Linear",
+
+            ['Bezier'] = false,
+
+            ['CloseRangeT_Threshold'] = 0.99941,
+            ['MediumRangeT_Threshold'] = 0.99941,
+            ['FarRangeT_Threshold'] = 0.99941,
+
+            ['CloseRangeCurvePoints'] = Vector2.new(0, 0) -- X, Y
+            ['MediumRangeCurvePoints'] = Vector2.new(0, 0) -- X, Y
+            ['FarRangeCurvePoints'] = Vector2.new(0, 0) -- X, Y
+        }
+        ['Pistols'] = {
+            ['Close'] = 27, -- Studs
+            ['Medium'] = 60,
+            ['Far'] = math.huge,
+
+            ['CloseRangePrediction'] = 0.155,
+            ['MediumRangePrediction'] = 0.155,
+            ['FarRangePrediction'] = 0.155,
+
+            ['CloseRangeSmoothness'] = 0.00808,
+            ['MediumRangeSmoothness'] = 0.00808,
+            ['FarRangeSmoothness'] = 0.00808,
+
+            ['CloseRangeCamlockMode'] = "Easing",
+            ['MediumRangeCamlockMode'] = "Easing",
+            ['FarRangeCamlockMode'] = "Easing",
+
+            ['CloseRangeEasingStyle'] = "Linear",
+            ['MediumRangeEasingStyle'] = "Linear",
+            ['FarRangeEasingStyle'] = "Linear",
+
+            ['CloseRangeAirShotEasingStyle'] = "Linear",
+            ['MediumRangeAirShotEasingStyle'] = "Linear",
+            ['FarRangeAirShotEasingStyle'] = "Linear",
+
+            ['Bezier'] = false,
+
+            ['CloseRangeT_Threshold'] = 0.99941,
+            ['MediumRangeT_Threshold'] = 0.99941,
+            ['FarRangeT_Threshold'] = 0.99941,
+
+            ['CloseRangeCurvePoints'] = Vector2.new(0, 0) -- X, Y
+            ['MediumRangeCurvePoints'] = Vector2.new(0, 0) -- X, Y
+            ['FarRangeCurvePoints'] = Vector2.new(0, 0) -- X, Y
+        }
+        ['Automatics'] = {
+            ['Close'] = 27, -- Studs
+            ['Medium'] = 60,
+            ['Far'] = math.huge,
+
+            ['CloseRangePrediction'] = 0.155,
+            ['MediumRangePrediction'] = 0.155,
+            ['FarRangePrediction'] = 0.155,
+
+            ['CloseRangeSmoothness'] = 0.00808,
+            ['MediumRangeSmoothness'] = 0.00808,
+            ['FarRangeSmoothness'] = 0.00808,
+
+            ['CloseRangeCamlockMode'] = "Easing",
+            ['MediumRangeCamlockMode'] = "Easing",
+            ['FarRangeCamlockMode'] = "Easing",
+
+            ['CloseRangeEasingStyle'] = "Linear",
+            ['MediumRangeEasingStyle'] = "Linear",
+            ['FarRangeEasingStyle'] = "Linear",
+
+            ['CloseRangeAirShotEasingStyle'] = "Linear",
+            ['MediumRangeAirShotEasingStyle'] = "Linear",
+            ['FarRangeAirShotEasingStyle'] = "Linear",
+
+            ['Bezier'] = false,
+
+            ['CloseRangeT_Threshold'] = 0.99941,
+            ['MediumRangeT_Threshold'] = 0.99941,
+            ['FarRangeT_Threshold'] = 0.99941,
+
+            ['CloseRangeCurvePoints'] = Vector2.new(0, 0) -- X, Y
+            ['MediumRangeCurvePoints'] = Vector2.new(0, 0) -- X, Y
+            ['FarRangeCurvePoints'] = Vector2.new(0, 0) -- X, Y
         }
     },
     ['Resolver'] = {
@@ -477,7 +597,7 @@ getgenv().Serpent = {
         DisableIfSpeedAbove: 10, -- Recommend too Keep On 10 Test For yourself
         ['Enabled'] = false,
         ['Print'] = false, -- Would Use if Your testing
-        ['PrintMessage'] = "ur lock is ass nigga get serpent",
+        ['PrintMessage'] = "ERROR NIGGA! FIX UR CONFIG FUCK BOY",
         ['Delay'] = 1 -- In seconds
     },
 }

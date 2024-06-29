@@ -20,12 +20,14 @@
 --██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████--
 --.🅒🅒--
 -----------------------------------------------------------------------------------------------------------------------------------------------------------
--- // Main Log V.3.9.3 Serpent.cc 
--- // Adding more Features into range fov camlock soon
--- // Halfway Done with V4 
--- // Supports Wave 6/28
--- // Added RGB Colors For FOV 
--- // ADDED RANGE FOV CAMLOCK
+-- // Main Log V.4 Serpent.cc 
+-- // COMPLETED V4
+-- // NEW UPDATED GUI 
+-- // TRASHTALK
+-- // FEATURE LIST
+-- // ADDED DESTROY CHEATERS
+-- // UPDATED RESOLVER METHOD
+-- // ADDED PREDICTION ANALYZER
 
 -- IMPORTANT MUST READ 
 -- // NOTE: WHEN DOING FOVSHAPED FOR SILENT AIM RANGE SETTINGS YOU HAVE TO ENABLE THE SHAPE YOU WANT TOO USE IN THE SILENT AIM FOV SECTION THIS CAN APPLY FOR MULTIPLE
@@ -38,6 +40,7 @@
 getgenv().Serpent = {
     ['StartUP'] = {
         ['ScriptKey'] = "Put your Lua Armour Key Inside here",
+        ['Version'] = "V4" -- V3.9.4, V3.9.1 Hits more, V4 Most updated
         ['GUI'] = true, -- Main
         ['LoadSeconds'] = 1, -- How many Seconds you Want the Script Too Load
         ['LoadKeybind'] = '', -- Keybind For the Script To load Good for Closet cheating
@@ -95,7 +98,10 @@ getgenv().Serpent = {
             ['FFLAGNotifications'] = false,
             ['PanicNotifications'] = true,
             ['FrameSkipNotifications'] = false,
-            ['NotificationMode'] = "Roblox" -- Xaxa, Roblox
+            ['NotificationMode'] = "Roblox", -- Xaxa, Roblox
+            ['TrashTalkNotifications'] = true,
+            ['StreamableModeNotifications'] = true,
+            ['DestroyCheatersNotifications'] = true
         }
     },
     ['Streamable'] = {
@@ -197,7 +203,7 @@ getgenv().Serpent = {
             ['Head'] = 95/100,
             ['Proportions'] = 5/100,
             ['Dotted'] = false
-        }
+        },
         ['AutoPrediction'] = {
             ['AutoPrediction'] = false,
             ['Delay'] = 0.001259010151111,
@@ -207,11 +213,12 @@ getgenv().Serpent = {
                 ['p40_50'] = 0.12,
                 ['p50_60'] = 0.12,
                 ['p60_70'] = 0.129,
+                ['p70_80'] = 0.124535
                 ['p80_90'] = 0.155,
                 ['p90_100'] = 0.191,
                 ['p100_110'] = 0.12264,
                 ['p110_120'] = 0.1929211135
-            }
+            },
             ['UsePreCreated'] = {
                 ['Enabled'] = false,
                 ['PreCreatedAutoPredictionMode'] = 'V.8', -- V.1 V.2 V.3 V.4 V.5 V.6 V.7 V.8
@@ -219,13 +226,19 @@ getgenv().Serpent = {
                 ['Precision'] = 1,
                 ['Coefficient'] = 1,
             }
-        }
+        },
         ['TargetCheck'] = {
             ['Enabled'] = true,
             ['Chance'] = 80
-        }
+        },
         ['PointRate'] = {
             ['Power'] = 10 -- the More you go down the more harder it is too Hit a Bodypart 6-7 is best
+        },
+        ['PredictionAnalyzer'] = { -- Makes Sure your Prediction doesnt Predict too far, Current settings are Good
+            ['Enabled'] = false,
+            ['UniversalPing'] = true, -- KEEP ON
+            ['AvoidOuterHitbox'] = true,
+            ['Rate'] = 67
         }
     },
     ['TargetAim'] = {
@@ -599,6 +612,31 @@ getgenv().Serpent = {
         ['Print'] = false, -- Would Use if Your testing
         ['PrintMessage'] = "ERROR NIGGA! FIX UR CONFIG FUCK BOY",
         ['Delay'] = 1 -- In seconds
+    },
+    ['FeatureList'] = { -- Pops up a Ui on your Lefthand Side of your screen. shows what you have enabled and not, you can add stuff aswell
+        ['Enabled'] = false,
+        {SilentAimAxis = {}, ClosestPoint = {}, ReductionRate = {}, Beizer = {}, Cardioid = {}, Easing = {}},
+    },
+    ['TrashTalk'] = {
+        ['Enabled'] = false,
+        ['Keybind'] = "",
+        ['LastTick'] = tick(), -- Dont touch
+        ['Delay'] = 0.01,
+        ['Messages'] = {
+            "Serpent is Better",
+            "🤡🤡🤡🤡",
+            "Lol Cant Beat me",
+            "My Triggerbot is 1#",
+            "*Slithers*",
+            "🐍🐍🐍🐍🐍",
+            "Ur script is pasted",
+            "Lol Shitty nemesis user",
+            "🐍🐍 .gg/serpent.cc"
+        }
+    },
+    ['DestroyCheaters'] = {
+        ['Enabled'] = false,
+        ['Keybind'] = ""
     },
 }
 loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/e14209cacb6973d3e605234db8583c52.lua"))()  

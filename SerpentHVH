@@ -1,0 +1,7 @@
+getgenv().SHVH = {
+    Key = 'LuarmorKey', -- replace with luarmor key
+    PhantomForces = false,
+    BladeBall = false,
+    DaHood = true
+}
+loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/e14209cacb9973d3e605234db8583c52.lua"))() 

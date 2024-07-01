@@ -40,7 +40,7 @@
 getgenv().Serpent = {
     ['StartUP'] = {
         ['ScriptKey'] = "Put your Lua Armour Key Inside here",
-        ['Version'] = "V4" -- V3.9.4, V3.9.1 Hits more, V4 Most updated
+        ['Version'] = "V3.9.9" -- V3.9.4, V3.9.1 Hits more, V3.9.9 Most updated
         ['GUI'] = true, -- Main
         ['LoadSeconds'] = 1, -- How many Seconds you Want the Script Too Load
         ['LoadKeybind'] = '', -- Keybind For the Script To load Good for Closet cheating

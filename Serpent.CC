@@ -21,13 +21,8 @@
 --.🅒🅒--
 -----------------------------------------------------------------------------------------------------------------------------------------------------------
 -- // Main Log V.4 Serpent.cc 
--- // COMPLETED V4
--- // NEW UPDATED GUI 
--- // TRASHTALK
--- // FEATURE LIST
--- // ADDED DESTROY CHEATERS
--- // UPDATED RESOLVER METHOD
--- // ADDED PREDICTION ANALYZER
+-- // Added New Anti curve settings
+-- // New Resolver Methods
 
 -- IMPORTANT MUST READ 
 -- // NOTE: WHEN DOING FOVSHAPED FOR SILENT AIM RANGE SETTINGS YOU HAVE TO ENABLE THE SHAPE YOU WANT TOO USE IN THE SILENT AIM FOV SECTION THIS CAN APPLY FOR MULTIPLE
@@ -36,11 +31,11 @@
 -- // Resolver Explaination: Linear Is the Best Currently uses a Custom Force Applied onto a constraint.
 -- If you want Too learn More https://create.roblox.com/docs/reference/engine/classes/LinearVelocity#PrimaryTangentAxis , https://create.roblox.com/docs/reference/engine/classes/LinearVelocity
 -----------------------------------------------------------------------------------------------------------------------------------------------------------
-
+ 
 getgenv().Serpent = {
     ['StartUP'] = {
         ['ScriptKey'] = "Put your Lua Armour Key Inside here",
-        ['Version'] = "V3.9.9" -- V3.9.4, V3.9.1 Hits more, V3.9.9 Most updated
+        ['Version'] = "V4.1" -- V4.1 Most updated
         ['GUI'] = true, -- Main
         ['LoadSeconds'] = 1, -- How many Seconds you Want the Script Too Load
         ['LoadKeybind'] = '', -- Keybind For the Script To load Good for Closet cheating
@@ -54,7 +49,8 @@ getgenv().Serpent = {
         ['DestroyF9Console'] = false,
         ['UWPBooster'] = nil,
         ['GreySky'] = false,
-        ['RemoveShadows'] = false
+        ['RemoveShadows'] = false,
+        ['NoImputDelay'] = true -- Gets Rid Off Lag for All Guns and Other stuff
     }
     ['Universal'] = {
        ['GameID'] = "", -- Enter Your Game ID You want to Play, Examples: HoodCustoms = 9825515356, Hood Modded = 5602055394, leave blank for da hood
@@ -124,14 +120,24 @@ getgenv().Serpent = {
         },
         ['AntiCurve'] = {
             ['Enabled'] = true,
+            ['CurveCheck'] = true, -- Keep On
+            ['PredictionCheck'] = true, -- wall check
             ['VelocityControl'] = {
                 ['AdvancedVelocity'] = true,
                 ['X'] = 0.6,
                 ['Y'] = 0.5
             },
+            ['DynamicSettings'] = {
+                ['Type'] = "3D", -- 2D, 3D
+                ['Angle'] = 10
+            },
             ['DeltaControl'] = {
                 ['DeltaPattern'] = true,
                 ['Amount'] = 100 -- Stableness In %
+            },
+            ['Safety'] = {
+                ['Panic'] = true, -- Detects If The Silent is Gonna Curve auto turns off silent when curves
+                ['Hitchance'] = 20 -- Hitchance when your Silent aim Is gonna Curve 
             }
         },
         ['BulletManiputlation'] = {
@@ -142,7 +148,8 @@ getgenv().Serpent = {
         ['Style'] = 'Sine' -- Elastic, Sine, Linear, Quad
         },
         ['Mode'] = {
-            ['AdvancedClosest'] = true, -- A More Legit Version Of Closest Point Super Advanced Points and Reductions Rates
+            ['MostAbsoluteClosestPoint'] = true, -- Most Legit as Of Right now Never Hits a Wrong spot
+            ['AdvancedClosest'] = false, -- A More Legit Version Of Closest Point Super Advanced Points and Reductions Rates
             ['ClosestPoint'] = false, -- Closest Point To your Cursor
             ['ClosestPart'] = false, -- Uses All 16 Hitparts Closest To your Cursor
             ['Normal'] = false -- Uses Only One Hitpart Chosen Closest to your Cursor
@@ -547,7 +554,9 @@ getgenv().Serpent = {
     },
     ['Resolver'] = {
         ['Enabled'] = true,
-        ['Mode'] = "Linear" -- Linear, Delta, Basic
+        ['AutoResolve'] = true,
+        ['Keybind'] = "",
+        ['Mode'] = "Linear" -- Linear, Delta, Default, RecalculateVelocity, 
     }
     ['Misc'] = {
         ['PanicKey'] = "",
@@ -591,7 +600,7 @@ getgenv().Serpent = {
     ['AntiAim'] = {
         ['Enabled'] = false,
         ['Keybind'] = "",
-        ['AntiLockMode'] = "PredictionBreaker" -- PredictionBreaker, InvisibleDesync, Desync, Underground, Sky, Network, Walkable
+        ['AntiLockMode'] = "PredictionBreaker" -- PredictionBreaker, InvisibleDesync, Desync, Underground, Sky, Network, Walkable, HumaniodKiller *works well for externals*
     },
     ['FFLAG'] = {
         ['Enabled'] = false,
@@ -630,7 +639,7 @@ getgenv().Serpent = {
             "*Slithers*",
             "🐍🐍🐍🐍🐍",
             "Ur script is pasted",
-            "Lol Shitty nemesis user",
+            "Lol Shitty script loser",
             "🐍🐍 .gg/serpent.cc"
         }
     },

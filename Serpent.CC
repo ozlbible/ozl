@@ -148,11 +148,15 @@ getgenv().Serpent = {
         ['Style'] = 'Sine' -- Elastic, Sine, Linear, Quad
         },
         ['Mode'] = {
-            ['MostAbsoluteClosestPoint'] = true, -- Most Legit as Of Right now Never Hits a Wrong spot
-            ['AdvancedClosest'] = false, -- A More Legit Version Of Closest Point Super Advanced Points and Reductions Rates
             ['ClosestPoint'] = false, -- Closest Point To your Cursor
             ['ClosestPart'] = false, -- Uses All 16 Hitparts Closest To your Cursor
             ['Normal'] = false -- Uses Only One Hitpart Chosen Closest to your Cursor
+            ['ClosestPointType'] = {
+                ['MostAbsolute'] = true, -- Most Legit
+                ['Advanced'] = false, -- Hits more Shots while as Legit
+                ['Minimal'] = false, -- Hits More On Airshots While Looking Legit
+                ['Default'] = false -- Default Setting For closest point
+            }
         },
         ['Settings'] = {
             ['OverrideXAxis'] = "Default", -- Default, Minimal, Partial, SmoothOut

@@ -21,8 +21,9 @@
 --.🅒🅒--
 -----------------------------------------------------------------------------------------------------------------------------------------------------------
 -- // Main Log V.4 Serpent.cc 
--- // Added New Anti curve settings
--- // New Resolver Methods
+-- // Made Silent Axis settings more Customizable
+-- // Buffed Triggerbot
+-- // Added New Point Rate Feature
 
 -- IMPORTANT MUST READ 
 -- // NOTE: WHEN DOING FOVSHAPED FOR SILENT AIM RANGE SETTINGS YOU HAVE TO ENABLE THE SHAPE YOU WANT TOO USE IN THE SILENT AIM FOV SECTION THIS CAN APPLY FOR MULTIPLE
@@ -154,14 +155,16 @@ getgenv().Serpent = {
             ['ClosestPointType'] = {
                 ['MostAbsolute'] = true, -- Most Legit
                 ['Advanced'] = false, -- Hits more Shots while as Legit
-                ['Minimal'] = false, -- Hits More On Airshots While Looking Legit
+                ['Minimal'] = false,
+                ['Scalar'] = false, -- Uses Scaling Format
                 ['Default'] = false -- Default Setting For closest point
+            },
+            ['Scaling'] = {
+                ['Min'] = 5,
+                ['Max'] = 2.5,
             }
         },
         ['Settings'] = {
-            ['OverrideXAxis'] = "Default", -- Default, Minimal, Partial, SmoothOut
-            ['OverrideYAxis'] = "Default", -- Default, Minimal, Partial, SmoothOut
-            ['OverrideZAxis'] = "Default", -- Default, Minimal, Partial, SmoothOut
             ['ClosestPointReductionRate'] = 20,
             ['Prediction'] = 0.129,
             ['HitChance'] = 100,
@@ -169,6 +172,18 @@ getgenv().Serpent = {
                 ['UseOffsets'] = false,
                 ['XOffset'] = 0,
                 ['YOffset'] = 0
+            }
+        },
+        ['AxisThresholds'] = {
+            ['OverrideXAxis'] = "Default", -- Default, Minimal, Partial, SmoothOut
+            ['OverrideYAxis'] = "Default", -- Default, Minimal, Partial, SmoothOut
+            ['OverrideZAxis'] = "Default", -- Default, Minimal, Partial, SmoothOut
+            ['CustomAxis'] = false,
+            ['Custom'] = {
+                ['X_Threshold'] = -13,
+                ['Y_Threshold'] = -15,
+                ['Z_Threshold'] = -19,
+                ['Multiplier'] = 0.15
             }
         },
         ['FovModes'] = {
@@ -238,12 +253,14 @@ getgenv().Serpent = {
                 ['Coefficient'] = 1,
             }
         },
-        ['TargetCheck'] = {
+        ['TargetCheck'] = { -- Checks If theres Actually A Target
             ['Enabled'] = true,
             ['Chance'] = 80
         },
         ['PointRate'] = {
-            ['Power'] = 10 -- the More you go down the more harder it is too Hit a Bodypart 6-7 is best
+            ['Enabled'] = false,
+            ['Power'] = 10, -- the More you go down the more harder it is too Hit a Bodypart 6-7 is best
+            ['MultiPoint'] = 100/100 -- Creates A Even Power Between ClosestPoint
         },
         ['PredictionAnalyzer'] = { -- Makes Sure your Prediction doesnt Predict too far, Current settings are Good
             ['Enabled'] = false,

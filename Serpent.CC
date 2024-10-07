@@ -1,5 +1,4 @@
---  24 Slots Avalable For Serpent Current Whitelist Goes for 140$ USD, Bitcoin or Litecoin  --
--- Created By The Works Of Gamesneeze.cc/Atlanta Assist and Much others
+--  24 Slots Left Dm @ozlbible for prices
 -- Comes With Private PC Cleaner/PC Check Bypass Thats Exlusive to Buyers Only --
 -- Comes With Exlusive Programs Like Our Auto PS Joiner and more -- 
 -- 25x Da hood Stars Crewleaders + Da hood Stars -- 
@@ -20,10 +19,10 @@
 --██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████--
 --.🅒🅒--
 -----------------------------------------------------------------------------------------------------------------------------------------------------------
--- // Main Log V.4 Serpent.cc 
--- // Made Silent Axis settings more Customizable
--- // Buffed Triggerbot
--- // Added New Point Rate Feature
+-- // Main Log V.4.2.3 Serpent.cc 
+-- // Added New Start up Settings
+-- // Disabled Bullet TP in Gui cuz of patch, fixing soon
+
 
 -- IMPORTANT MUST READ 
 -- // NOTE: WHEN DOING FOVSHAPED FOR SILENT AIM RANGE SETTINGS YOU HAVE TO ENABLE THE SHAPE YOU WANT TOO USE IN THE SILENT AIM FOV SECTION THIS CAN APPLY FOR MULTIPLE
@@ -123,14 +122,13 @@ getgenv().Serpent = {
             ['Enabled'] = true,
             ['CurveCheck'] = true, -- Keep On
             ['PredictionCheck'] = true, -- wall check
-            ['VelocityControl'] = {
+            ['VelocityControl'] = { -- 3D Points For Extra Checks
                 ['AdvancedVelocity'] = true,
-                ['X'] = 0.6,
+                ['X'] = 0.6, 
                 ['Y'] = 0.5
             },
             ['DynamicSettings'] = {
-                ['Type'] = "3D", -- 2D, 3D
-                ['Angle'] = 10
+                ['Size'] = Vector3.new(13,13,13)  
             },
             ['DeltaControl'] = {
                 ['DeltaPattern'] = true,
@@ -156,7 +154,8 @@ getgenv().Serpent = {
                 ['MostAbsolute'] = true, -- Most Legit
                 ['Advanced'] = false, -- Hits more Shots while as Legit
                 ['Minimal'] = false,
-                ['Scalar'] = false, -- Uses Scaling Format
+                ['Scalar'] = false, -- Uses Scaling Format *Legit*
+                ['Center'] = false, -- Uses the Center Of The player
                 ['Default'] = false -- Default Setting For closest point
             },
             ['Scaling'] = {
@@ -175,9 +174,9 @@ getgenv().Serpent = {
             }
         },
         ['AxisThresholds'] = {
-            ['OverrideXAxis'] = "Default", -- Default, Minimal, Partial, SmoothOut
-            ['OverrideYAxis'] = "Default", -- Default, Minimal, Partial, SmoothOut
-            ['OverrideZAxis'] = "Default", -- Default, Minimal, Partial, SmoothOut
+            ['OverrideXAxis'] = "Default", -- Default, Partial, Max
+            ['OverrideYAxis'] = "Default", -- Default, Partial, Max
+            ['OverrideZAxis'] = "Default", -- Default, Partial, Max
             ['CustomAxis'] = false,
             ['Custom'] = {
                 ['X_Threshold'] = -13,
@@ -575,7 +574,7 @@ getgenv().Serpent = {
     },
     ['Resolver'] = {
         ['Enabled'] = true,
-        ['AutoResolve'] = true,
+        ['AutoResolve'] = true, 
         ['Keybind'] = "",
         ['Mode'] = "Linear" -- Linear, Delta, Default, RecalculateVelocity, 
     }
@@ -661,12 +660,8 @@ getgenv().Serpent = {
             "🐍🐍🐍🐍🐍",
             "Ur script is pasted",
             "Lol Shitty script loser",
-            "🐍🐍 .gg/serpent.cc"
+            "🐍🐍 HAHAHAHAAHAHAA"
         }
-    },
-    ['DestroyCheaters'] = {
-        ['Enabled'] = false,
-        ['Keybind'] = ""
     },
 }
 loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/e14209cacb6973d3e605234db8583c52.lua"))()  

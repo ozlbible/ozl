@@ -1,0 +1,226 @@
+-- guide: Activation is the newest point mode. How it works is it uses all 16 hitparts and makes rectanges around the center of that part. once your Fov hits that part the silent activates. If you remove a part closest point will be used on that body part instead of activation + closestpart
+-- Continued: DecisiveMode is recommened* because it helps the silent actually aim proper* use it so your prediction doesnt predict too far
+getgenv().Serpent = {
+    key = ""
+    Build = {
+        Enabled = false,
+        Build = "B1.5" -- Pre Created Configs. B1.1 Is Semi legit, B1.2 Is Legit, B1.3 Legit, B1.4 Legit, B1.5 Semi Blatant
+    },
+    Stableness = {
+        POS = "Auto",
+        RemoveErrors = true,
+        NoGunDelay = false
+    },
+    Streamable = { -- ESP, FOV, Etc
+        Enabled = true
+    },
+    TargetCheck = { 
+        Enabled = true,
+        Chance = 99
+    },
+    Silent = {
+        Enabled = true,
+        Keybind = "K",
+
+        Checks = {
+            AntiGroundShots = true,
+            Resolver = { Enabled = true, Auto = true, Type = LinearVelocity }
+        },
+        Settings = {
+            Hitchance = 100,
+            AirShotHitChance = 100,
+            HitPart = "Head"
+        },
+        PredictionSettings = {
+            PredictionType = "Default" -- Default, Vector3
+            AutoPrediction = false,
+            Prediction = 0.125,
+            Vector3 = {
+                X = 0.124523325321,
+                Y = 0.123,
+                Z = 0.12,
+            }, 
+        },
+        AxisThresholdOverride = {
+            X = "Default", -- Default, Partial, Max
+            Y = "Partial", -- Default, Partial, Max
+            Z = "Max", -- Default, Partial, Max
+            CustomAxis = false,
+            Custom = {
+                X_Threshold = 0,
+                Y_Threshold = -15.4,
+                Z_Threshold = 0,
+                Multiplier = 0.15
+            }
+        }
+        Mode = {
+            SilentMode = "ClosestPoint" -- ClosestPoint, ClosestPart, Default
+        },
+        PointSettings = {
+            Mode = "Avanced", -- Avanced, Activation, Scalar, Minimal, Center, Reduction, Default 
+            ReductionSettings = {
+                ReductionRate = 20
+            },
+            ScalarSettings = {
+                Min = 3,
+                Max = 6
+            },
+            ActivationSettings = { 
+                Hitparts = { "LeftLowerArm","RightLowerArm","LeftUpperArm","RightUpperArm","LeftLowerLeg","RightLowerLeg" },
+                RectangleSize = 20,
+                UseFOV = true
+            },   
+        }
+        AntiCurve = {
+            VelocityControl = { -- For Extra Checks
+                AdvancedVelocity = true,
+                X = 0.7, 
+                Y = 0.6
+            },
+            Dynamic = {
+                Visualize = false,
+                UseFOV = true, 
+                Size = Vector3.new(13,13,13)
+            },
+            Safety = {
+                Enabled = true,
+                Chance = 20
+            },
+            BulletManiputlation = {
+                Position = "Partial", -- All, Partial, Disabled
+                 Style = "Sine", -- https://pastebin.com/bsAFLhm8 <--- read
+                 Delay - 0.4 -- Turns Spread On and Off
+            }
+        }
+        PointRate = {
+            Enabled = false,
+            Power = 10, -- the More you go down the more harder it is too Hit a Bodypart 6-7 is best. 10 is max
+            MultiPoint = 100/100 -- Creates A Even Power Between ClosestPoint
+        },
+        DecisiveMode = {
+            Enabled = true,
+            UniversalPing = true, -- KEEP ON
+            AvoidOuterHitbox = true,
+            Rate = 67
+        },
+        FOV = {
+            Normal = true, 
+            Box = false, 
+            PlayerFOV = false 
+        },
+        Normal = {
+            Show = true,
+            Size = 50,
+            Color = Color3fromRGB(200, 1, 200),
+            Filled = false,
+            Thickness = 0.2,
+            Transparency = 0.5,
+            PulseSpeed = 0, 
+            SpinSpeed = 1, 
+            Sticky = false,
+            Shaped = {
+                Hexagon = false,
+                Triangle = false,
+                Octigon = false
+            }
+        },
+        Box = {
+            Show = false,
+            Sticky = true, -- Recommend
+            Widith = 100,
+            Height = 100,
+            Color = Color3fromRGB(200, 1, 200),
+            Filled = false,
+            Thickness = 0.2,
+            Transparency = 0.5,
+            Dotted = false,
+            Predicted = true 
+        },
+        PlayerFOV = { 
+            Show = false,
+            Height = 90/100,
+            Widith = 70/100,
+            Head = 95/100,
+            Proportions = 5/100,
+            Dotted = false
+        },  
+    },
+    Camlock = {
+        Enabled = true,
+        Keybind = "C",
+        HoldMode = false,
+        MouseMode = false,
+        MouseBind = Enum.UserInputType.MouseButton1,
+        CamlockChecks = {
+            TypeCheck = false,
+            DisableOnThirdPerson = false,
+            DisableOnReload = false,
+            GunCheck = false
+        }, 
+        Settings = {
+            ClosestPoint = false,
+            ClosetPart = false,
+            Normal = true, 
+            Hitpart = "UpperTorso",
+            AirShotHitpart = "Head",
+            CamlockOffsets = {
+                UseOffsets = false,
+                XOffset = 0,
+                YOffset = 0
+            }
+            PredictionSettings = {
+                X = 0.135,
+                Y = 0.135
+            }
+        },
+        FovSettings = {
+            Show = true,
+            Size = 50,
+            Color = Color3fromRGB(200, 1, 200),
+            Filled = false,
+            Thickness = 0.2,
+            Transparency = 0.5,
+            Deadzone = false,
+            DeadzoneSize = 15
+        },
+        CamlockModes = {
+            Easing = true,
+            Bezier = false,
+            Hyperbola = false,
+            Cardioid = false
+        },
+        EasingSettings = {
+            EasingStyle = "Linear",
+            AirEasingStyle = "Sine",
+            EasingDirection = "InOut"
+        },
+        BezierSettings = {
+            T_Threshold = 0.99941,
+            CurvePoints = Vector2.new(0, 0) -- X, Y
+        },
+        Hyperbola = {
+            Hyperbola_Sensitivity = 4, -- Smoothness
+            HyperbolaFrequency = 0.5,
+            ActOnRecoil = true
+        },
+        Cardioid = {
+            CardioidX = 1,
+            CardioidY = 7,
+            CardioidFrequency = 0.5
+        },
+        Other = {
+            FrameSkips = false,
+            FrameSkipKeybind = "",
+            ShakeSettings = {
+                Shake = false,
+                X = 1,
+                Y = 1,
+                Z = 1,
+                OffsetX = 0,
+                OffsetY = 0
+            }
+        }
+    },
+    
+
+}
